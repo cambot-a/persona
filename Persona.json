@@ -1,0 +1,956 @@
+{
+  "name": "Persona",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -304,
+        -16
+      ],
+      "id": "3d4d83bd-5cf3-442e-b022-0cfe7ea3fe5e",
+      "name": "When chat message received",
+      "webhookId": "cd9baa16-310c-46df-8fa0-37383de43170"
+    },
+    {
+      "parameters": {
+        "operation": "deleteRows",
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userEmail",
+              "keyValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('conditions0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        448,
+        256
+      ],
+      "id": "eeba1a91-ae62-4c78-b1a2-f8930f2a254c",
+      "name": "Delete rows"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
+        "orderBy": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Order_By', ``, 'boolean') }}"
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        256
+      ],
+      "id": "01896d43-b68c-4432-bac2-0c14f48731ba",
+      "name": "Get rows"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sendHour": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('sendHour', ``, 'number') }}",
+            "sendMinute": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('sendMinute', ``, 'number') }}",
+            "userName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userName', ``, 'string') }}",
+            "userEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userEmail', ``, 'string') }}",
+            "userInterests": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userInterests', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "userName",
+              "displayName": "userName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "userEmail",
+              "displayName": "userEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "userInterests",
+              "displayName": "userInterests",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sendHour",
+              "displayName": "sendHour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sendMinute",
+              "displayName": "sendMinute",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "subscribed",
+              "displayName": "subscribed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        336,
+        256
+      ],
+      "id": "6e4db8db-816b-4c8a-a8da-5c85d5360ead",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userEmail",
+              "keyValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('conditions0_Value', `Si l'email de l'utilisateur est exact à celle stockée dans la base de données.`, 'string') }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "userName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userName', ``, 'string') }}",
+            "userEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userEmail', ``, 'string') }}",
+            "userInterests": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('userInterests', ``, 'string') }}",
+            "emailFrequency": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('emailFrequency', ``, 'number') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "userName",
+              "displayName": "userName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "userEmail",
+              "displayName": "userEmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "userInterests",
+              "displayName": "userInterests",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "emailFrequency",
+              "displayName": "emailFrequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        256
+      ],
+      "id": "4f00568e-0ccb-4f6c-b144-04100ad541f6",
+      "name": "Update rows"
+    },
+    {
+      "parameters": {
+        "additionalFields": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-serpapi.serpApiTool",
+      "typeVersion": 1,
+      "position": [
+        656,
+        1008
+      ],
+      "id": "8ab19ded-aa7e-43f0-b73a-d41ce00aeeac",
+      "name": "Google search in SerpApi",
+      "credentials": {
+        "serpApi": {
+          "id": "rmV5BJLsU3FPq0Vt",
+          "name": "research_account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -192,
+        512
+      ],
+      "id": "5b22b103-20f5-456a-9d6c-be74b0506a8e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "sendHour",
+              "keyValue": "={{ $json.Hour }}"
+            },
+            {
+              "keyName": "sendMinute",
+              "keyValue": "={{ $json.Minute }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -48,
+        512
+      ],
+      "id": "a5aea382-d395-4e1a-8b8b-baba3af4283f",
+      "name": "Get row(s)"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        384
+      ],
+      "id": "2451c8b5-6630-4e56-93a5-5ec79e16f3eb",
+      "name": "Send subscribe notification",
+      "webhookId": "7a6e4bd3-21a0-4d75-9120-3b12a95f6fba"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        544,
+        992
+      ],
+      "id": "5934d9f7-4886-41f2-a5ef-b8bfdc36052d",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "pv3VevCgZHURSNYM",
+          "name": "ollama-research-agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        256
+      ],
+      "id": "e5a7ae96-2dca-4e7e-8514-51467640613a",
+      "name": "Ollama Chat Model1",
+      "credentials": {
+        "ollamaApi": {
+          "id": "UsFWKUTFswKvgc0H",
+          "name": "personality_ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "Tu es un assistant chargé d'inscrire les utilisateurs à une newsletter personnalisée.\n\nTon objectif est de collecter les informations suivantes :\n- nom\n- email\n- centres d'intérêt\n- heure de réception\n\nRègles importantes :\n\n- Demande les informations manquantes de façon naturelle.\n- Si l'utilisateur donne plusieurs infos en un seul message, extrais-les toutes et traite-les.\n- Ne jamais inventer une information manquante.\n- Ne jamais appeler Insert_row tant que les 4 informations ne sont pas connues.\n- Quand toutes les informations sont fournies, appelle Insert_row et confirme l'inscription en envoyant un mail de confirmation au mail correspondant en format HTML.\n- Si l'utilisateur dit \"je suis [nom]\" et veut modifier ses infos, utilise Get_rows pour retrouver son profil puis Update_row.\n- Si l'utilisateur authentifié dit \"STOP\" ou veut se désinscrire, utilise Get_rows pour retrouver son profil puis Delete_rows en comparant avec l'email ET CONFIRME la suppression en envoyant un mail de confirmation au mail correspondant en format HTML.\n- À la fin de l'email d'inscription HTML, ajoute obligatoirement ce lien de désinscription de façon propre: \"http://localhost:5678/webhook/unsubscribe?email={{ $json.userEmail }}\"\n- Ne jamais afficher les données brutes de la base de données.\n- Ne jamais afficher le JSON des outils.\n- Répondre toujours en français."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5509c9c8-0bc1-4d6e-8abb-1a84e5c8fddc",
+      "name": "ChatBot"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        1008
+      ],
+      "id": "04e9be58-819c-432b-8679-50ceb831d83d",
+      "name": "Send news in Gmail",
+      "webhookId": "c8ace163-5d11-472f-8ecb-62e07e155c00"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=- Nom : {{ $json.userName }}\n- Email : {{ $json.userEmail }}\n- Intérêts : {{ $json.userInterests }}",
+        "options": {
+          "systemMessage": "Tu es un agent automatique. Tu ne réponds pas à l'utilisateur, tu exécutes des actions.\n\nINSTRUCTIONS STRICTES à exécuter dans l'ordre :\n\n- Recherche :\nAppelle Send_news_in_Gmail UNIQUEMENT après avoir cherché.\nUtilise Google_search_in_SerpApi avec la query :\n\"{{ $json.userInterests }} actualités juin 2026\"\n\n- Rédige en français :\nCompose un email HTML avec 5 articles trouvés.\nChaque article : titre, résumé 2 phrases, lien.\nAjoute en bas la possibilité de se désinscrire de façon naturelle avec le lien: \"http://localhost:5678/webhook/unsubscribe?email={{ $json.userEmail }}\"\n\n- Envoie OBLIGATOIREMENT :\nAppelle Send_news_in_Gmail avec :\n- To : {{ $json.userEmail }}\n- Subject : Ta newsletter personnalisée - juin 2026\n- Message : le HTML généré\n\nNE TERMINE PAS sans avoir appelé Send_news_in_Gmail."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        624,
+        832
+      ],
+      "id": "48646266-1bda-4186-a897-d8564a4f5e9d",
+      "name": "Newsletter agent"
+    },
+    {
+      "parameters": {
+        "path": "unsubscribe",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        816,
+        432
+      ],
+      "id": "8b3df413-3e60-4b59-a13c-d26dd38b75d0",
+      "name": "Webhook",
+      "webhookId": "bb71db46-f26c-441c-a20b-18c9475fb4e4"
+    },
+    {
+      "parameters": {
+        "operation": "deleteRows",
+        "dataTableId": {
+          "__rl": true,
+          "value": "seK316GTr6riNlhh",
+          "mode": "list",
+          "cachedResultName": "User Infos",
+          "cachedResultUrl": "/projects/smgw14hCBCoJSQ1i/datatables/seK316GTr6riNlhh"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userEmail",
+              "keyValue": "={{ $json.query.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1024,
+        432
+      ],
+      "id": "9f4dc731-c45f-4d36-9b02-f64229dcaa2e",
+      "name": "Delete row(s)",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "<h2>Vous avez été désinscrit avec succès.</h2>\n<p>Vous ne recevrez plus de newsletter.</p>",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1440,
+        432
+      ],
+      "id": "915a07c0-d5a6-48ca-8586-253c204f759d",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        96,
+        256
+      ],
+      "id": "726c39a1-e4f7-45db-a196-ce2a0458e633",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "<h2>Vous n'êtes pas inscrit à la newletter</h2>",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1440,
+        560
+      ],
+      "id": "76cb8d28-cfdc-450d-ae12-3342eda96fdc",
+      "name": "Respond to Webhook error"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "20cbd03b-e5c7-40fc-ba7e-db25dbdd8a68",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1216,
+        432
+      ],
+      "id": "950ce60e-1674-4703-827f-570a6a59e28f",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "# Role:\n\nYou are a research assistant, you will take the users preferences, and you MUST use the SerpApi1 Tool to look up the latest news fitting the user's preferences.\n\nOnly use the SerpApi1 Tool if you need to research the latest news.\n\nIn your output, you must include 1 relevant image URL from the SerpApi1 Tool."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -176,
+        768
+      ],
+      "id": "18b73455-7fa6-4fbd-b78c-f9af4e25ed32",
+      "name": "research Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        976
+      ],
+      "id": "0dfea0c2-10b8-45bc-8abe-2d7e74da3114",
+      "name": "Ollama Chat Model2",
+      "credentials": {
+        "ollamaApi": {
+          "id": "pv3VevCgZHURSNYM",
+          "name": "ollama-research-agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "# Role:\n\nYou are Tim Ferris, an incredible writer. You will receive information regarding the latest news in a random topic, and your role is to review this news and turn it into an email newsletter for an audience.\n\nThis newsletter is a casual newsletter, think of it like speaking to a friend, this is not a commercial or formal email. It's a friendly newsletter, to a small audience, updating them on the topic at hand.\n\n# Output:\n\nYou will output this newsletter in complete HTML format, with modern Email Newsletter styling. The email should have styling similar to apple.\n\nYou must use the images provided in this email. Try to include the images in the actual email and make flow with the content. Please follow the example html closely.\n\nDO NOT output anything other than the HTML, no notes/text"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        240,
+        752
+      ],
+      "id": "b38723c9-2efb-496a-a6eb-12b7443ff4d6",
+      "name": "email writing agent"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "you must use this tool (google serpApi) for all your research",
+        "q": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Search_Query__q_', ``, 'string') }}",
+        "additionalFields": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-serpapi.serpApiTool",
+      "typeVersion": 1,
+      "position": [
+        64,
+        944
+      ],
+      "id": "29eada5e-b5b0-44c3-9d51-0758a78aaec4",
+      "name": "SerpApi1",
+      "credentials": {
+        "serpApi": {
+          "id": "rmV5BJLsU3FPq0Vt",
+          "name": "research_account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        192,
+        928
+      ],
+      "id": "83d65f79-f825-4add-ae13-d8056de5b7b2",
+      "name": "Ollama Chat Model3",
+      "credentials": {
+        "ollamaApi": {
+          "id": "DztUWXHZqcaTPiie",
+          "name": "Ollama email writing agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.output.replace('```html', '').replace('```', '') }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1136,
+        736
+      ],
+      "id": "6dea5c78-cd81-4dd2-b3ef-501681361fa6",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "fromEmail": "armand.cambot@epitech.eu",
+        "toEmail": "armand.cambot@gmail.com",
+        "subject": "newsletter persona",
+        "html": "={{ $('email writing agent').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1344,
+        736
+      ],
+      "id": "ad824eb5-8f7f-4ce0-adbf-7122baf09155",
+      "name": "Send an Email",
+      "webhookId": "cea6686e-2b38-4ba5-b3b7-dce28e8c747d",
+      "credentials": {
+        "smtp": {
+          "id": "2mbGyNp4ITOGaCpz",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google search in SerpApi": {
+      "ai_tool": [
+        [
+          {
+            "node": "Newsletter agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)": {
+      "main": [
+        [
+          {
+            "node": "research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send subscribe notification": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Newsletter agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send news in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Newsletter agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Delete row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete row(s)": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "ChatBot",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "research Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "research Agent": {
+      "main": [
+        [
+          {
+            "node": "email writing agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpApi1": {
+      "ai_tool": [
+        [
+          {
+            "node": "research Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "email writing agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Newsletter agent": {
+      "main": [
+        []
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "email writing agent": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "883fd3d6-a638-424c-9bb4-085582b9da97",
+  "meta": {
+    "instanceId": "c3fa11101cab4e5125e77f9260e24050ef851fcf96b26ded2dfd1309020829e5"
+  },
+  "nodeGroups": [],
+  "id": "dR4HEpqdw8zEBYpf",
+  "tags": []
+}
