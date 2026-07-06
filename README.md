@@ -6,7 +6,8 @@ The workflow is exported in [`Persona.json`](./Persona.json).
 
 ## Screenshots
 
-> Screenshot images are not committed yet. Placeholder files are available in [`assets/screenshots`](./assets/screenshots) with capture notes for each image.
+<img width="708" height="564" alt="image" src="https://github.com/user-attachments/assets/c7c3d8d0-c095-4be1-8a85-3ab45f7ca0bd" />
+<img width="1312" height="594" alt="image" src="https://github.com/user-attachments/assets/78577246-a7bd-4109-8411-631632cbb954" />
 
 | Area | Placeholder | Suggested final image |
 | --- | --- | --- |
