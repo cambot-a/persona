@@ -195,14 +195,7 @@ Replace the base URL when running n8n on another host.
 .
 ├── Persona.json
 ├── README.md
-├── LICENSE
-└── assets/
-    └── screenshots/
-        ├── README.md
-        ├── workflow-overview.md
-        ├── chat-subscription-flow.md
-        ├── newsletter-email.md
-        └── unsubscribe-page.md
+└── LICENSE
 ```
 
 ## Development Notes
