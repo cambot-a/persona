@@ -1,5 +1,1 @@
-# Placeholder: Workflow Overview
-
-Suggested final screenshot: `workflow-overview.png`
-
-Capture the full n8n canvas after importing `Persona.json`, showing the chat, data table, research, email, schedule, and unsubscribe branches.
+<img width="708" height="564" alt="image" src="https://github.com/user-attachments/assets/c7c3d8d0-c095-4be1-8a85-3ab45f7ca0bd" />
